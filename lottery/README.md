@@ -6,7 +6,7 @@ First, when we use Remix to deploy the contract, we can actually see the transac
 ![deployment](https://user-images.githubusercontent.com/69433462/127059128-cf022676-241b-4a78-b635-d64bcbc5c98e.JPG)
 
 
-After that ww can observe that all the accounts have 100 ETH: this is the beginning of the lottery.
+After that we can observe that all the accounts have 100 ETH: this is the beginning of the lottery.
 
 ![before](https://user-images.githubusercontent.com/69433462/127059270-bcf7d2bc-b0dd-493f-8371-a6231097e16f.JPG)
 
