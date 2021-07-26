@@ -4,7 +4,7 @@ import json
 local_endpoint = "http://127.0.0.1:7545"
 w3 = Web3(Web3.HTTPProvider(local_endpoint))
 
-contract_address = "0x2Ab8fc3A0e1a44A54953D6b8134414498B719154"
+contract_address = "0x9d1A04654F93797Fe8D8077880f15dBC426CA1a8"
 
 contract_abi = json.loads('[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"getBalance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"manager","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"pickWinner","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"players","outputs":[{"internalType":"address payable","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"random","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"stateMutability":"payable","type":"receive"}]')
 
@@ -12,14 +12,14 @@ lottery = w3.eth.contract(address=contract_address, abi=contract_abi)
 
 print(f" Manager address: {lottery.functions.manager().call()}")
 
-sender_1 = "0xf9D6cF6B163Db81dC78aA73874C8921fC0266D4D"
-private_key_1 = "860b2da53e0f4316a18a0707da55d9bd0d5d6ed108c5b0102e5d2b164395e254"
-sender_2 = "0x0A30F83A9Bcc05438F940665Ce0df55E1D947D8a"
-private_key_2 = "20590528440ebf0e6ea9801b2f08a4baf061f08d1ed943992948178c4fd60f8c"
-sender_3 = "0x79C5DeDE3ff331f90801E241DeaB6478F4679e54"
-private_key_3 = "34a8a5dc86c1d7f81e6a1a026adbe61dbad11135230ceaeb9cdd45bb9b6cdad6"
-sender_4 = "0x9a91845533F684a785dd4C6cBd0ee55E7D8Bf188"
-private_key_4 = "e07fe33147177648df12be0e95833d4eee3b7d09e19cf09adc5ddf20c0309fe4"
+sender_1 = "0xDdf08Bf14875d313Bb4bb9E29E6a1Ed4feBdcC00"
+private_key_1 = "b401fd552610302c2e64842ea5a763cd905c767a54cb67ddb90d37fec66d2eee"
+sender_2 = "0xA164C13E812504Bf56315329EbD0c1a805240c5D"
+private_key_2 = "e30847a05d1009f9b6e15d15bf30b7c82f527d22ae0f728c860ea91ec2825f57"
+sender_3 = "0x6911d1dA6d393b4b9163e54976E67B299c04bC93"
+private_key_3 = "77999ab9cf315a9f97b9033ee739c10a95773275e46ee298983075ceb415dd9f"
+sender_4 = "0x3AA5Fdb0440a95B20388333867C677c85BE9257a"
+private_key_4 = "eb33e0fa3709b5fa3780e8c68b313625992cbf3a36cdb801960a3b6ec7a82977"
 
 for address, key in [(sender_1, private_key_1), (sender_2, private_key_2), (sender_3, private_key_3), (sender_4, private_key_4)]:
     nonce = w3.eth.getTransactionCount(address)
@@ -38,17 +38,14 @@ for address, key in [(sender_1, private_key_1), (sender_2, private_key_2), (send
 balance = w3.fromWei(lottery.functions.getBalance().call(), "ether")
 print(f"The actual balance of the lottery is: {balance} ether")
 
-# for i in range(5):
-#     print(f"Participant {i+1}: {lottery.functions.players(i).call()}")
-
 tx = lottery.functions.pickWinner().buildTransaction({
     "gas": 700000,
     "gasPrice": w3.toWei(1, "gwei"),
-    "from": "0x2Cea03DDc6b821e143B1Ce0D3851a8D9334737ca",
-    "nonce": w3.eth.getTransactionCount("0x2Cea03DDc6b821e143B1Ce0D3851a8D9334737ca")
+    "from": "0xb0Dc451B45C6BB977A36dbcfcaAA50D034C3CeF6",
+    "nonce": w3.eth.getTransactionCount("0xb0Dc451B45C6BB977A36dbcfcaAA50D034C3CeF6")
 })
 
-private_key = "5a7713daa0c60454ceddd3e7256ce3e0192d7f84240047814064aa367726e4a9"
+private_key = "a90610c08512233b12f085081326781c01fe74230e896ead4f122f07d9cf2e03"
 
 signed_tx = w3.eth.account.sign_transaction(tx, private_key)
 
