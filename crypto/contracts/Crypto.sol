@@ -16,7 +16,7 @@ interface ERC20Interface{
     event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
 }
 
-contract Cryptos is ERC20Interface{
+contract Crypto is ERC20Interface{
     string public name = "Zeus";
     string public symbol = "ZS";
     uint public decimals = 0;
