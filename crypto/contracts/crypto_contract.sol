@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity >=0.6.12 <0.9.0;
+pragma solidity >=0.6.0 <0.9.0;
 
 
 interface ERC20Interface{
@@ -17,8 +17,8 @@ interface ERC20Interface{
 }
 
 contract Cryptos is ERC20Interface{
-    string public name = "Cryptos";
-    string public symbol = "CRPT";
+    string public name = "Zeus";
+    string public symbol = "ZS";
     uint public decimals = 0;
     uint public override totalSupply;
 
